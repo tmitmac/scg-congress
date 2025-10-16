@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committees | Square Country Congress</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              congressional: {
+                '50': '#f0f9ff',
+                '100': '#e0f2fe',
+                '200': '#bae6fd',
+                '300': '#7dd3fc',
+                '400': '#38bdf8',
+                '500': '#0ea5e9',
+                '600': '#0284c7',
+                '700': '#0369a1',
+                '800': '#075985',
+                '900': '#0c4a6e',
+              },
+              senatorial: {
+                '50': '#f5f3ff',
+                '100': '#ede9fe',
+                '200': '#ddd6fe',
+                '300': '#c4b5fd',
+                '400': '#a78bfa',
+                '500': '#8b5cf6',
+                '600': '#7c3aed',
+                '700': '#6d28d9',
+                '800': '#5b21b6',
+                '900': '#4c1d95',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .committee-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .active-tab {
+        border-bottom: 3px solid;
+        font-weight: 600;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="w-12 h-12 bg-senatorial-600 rounded-lg flex items-center justify-center">
+              <i data-feather="home" class="text-white"></i>
+            </a>
+            <h1 class="text-2xl font-bold text-gray-800">Committees</h1>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="index.html" class="text-gray-600 hover:text-congressional-600">Home</a>
+            <a href="house.html" class="text-gray-600 hover:text-congressional-600">House</a>
+            <a href="senate.html" class="text-gray-600 hover:text-senatorial-600">Senate</a>
+            <a href="legislation.html" class="text-gray-600 hover:text-congressional-600">Legislation</a>
+            <a href="committees.html" class="text-senatorial-600 font-medium">Committees</a>
+          </nav>
+          <button class="md:hidden">
+            <i data-feather="menu" class="text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-congressional-600 to-senatorial-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Congressional Committees</h1>
+          <p class="text-xl mb-8">Committees monitor ongoing governmental operations, identify issues suitable for legislative review, and recommend courses of action to Congress.</p>
+          <a href="#committees" class="px-6 py-3 bg-white text-senatorial-600 font-medium rounded-lg hover:bg-gray-100 transition duration-200">
+            View Committees
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="py-8 bg-white border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="flex overflow-x-auto">
+          <div class="flex space-x-8">
+            <a href="#house-committees" class="pb-4 px-1 text-gray-500 hover:text-congressional-600 transition duration-200 active-tab border-congressional-600 text-congressional-600">
+              House Committees
+            </a>
+            <a href="#senate-committees" class="pb-4 px-1 text-gray-500 hover:text-senatorial-600 transition duration-200">
+              Senate Committees
+            </a>
+            <a href="#joint-committees" class="pb-4 px-1 text-gray-500 hover:text-purple-600 transition duration-200">
+              Joint Committees
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- House Committees -->
+    <section class="py-16 bg-gray-50" id="house-committees">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">House Committees</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="dollar-sign" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Appropriations</h3>
+              <p class="text-gray-600 mb-4">Responsible for passing appropriation bills along with its Senate counterpart.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Smith
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 55 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="briefcase" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Ways and Means</h3>
+              <p class="text-gray-600 mb-4">Oversees taxation, tariffs, and other revenue-raising measures.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Johnson
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 42 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="shield" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Armed Services</h3>
+              <p class="text-gray-600 mb-4">Oversees defense policy and the Department of Defense.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Davis
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 62 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="home" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Energy and Commerce</h3>
+              <p class="text-gray-600 mb-4">Handles healthcare, energy policy, environmental quality, and communications.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Wilson
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 55 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="book" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Education and Labor</h3>
+              <p class="text-gray-600 mb-4">Oversees education programs and labor standards.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Thompson
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 50 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-congressional-600 flex items-center justify-center">
+              <i data-feather="globe" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Foreign Affairs</h3>
+              <p class="text-gray-600 mb-4">Handles foreign policy and international relations.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Martinez
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 47 Members
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Senate Committees -->
+    <section class="py-16 bg-white hidden" id="senate-committees">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Senate Committees</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="dollar-sign" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Appropriations</h3>
+              <p class="text-gray-600 mb-4">Responsible for passing appropriation bills along with its House counterpart.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Brown
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 30 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="scale" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Judiciary</h3>
+              <p class="text-gray-600 mb-4">Oversees the judiciary, civil liberties, constitutional amendments, and immigration.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Wilson
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 22 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="shield" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Armed Services</h3>
+              <p class="text-gray-600 mb-4">Oversees defense policy and the Department of Defense.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Reed
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 25 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="activity" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Health, Education, Labor</h3>
+              <p class="text-gray-600 mb-4">Handles healthcare, education, employment, and retirement policies.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Sanders
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 22 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="globe" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Foreign Relations</h3>
+              <p class="text-gray-600 mb-4">Oversees foreign policy and international relations.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Menendez
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 21 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-senatorial-600 flex items-center justify-center">
+              <i data-feather="credit-card" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Finance</h3>
+              <p class="text-gray-600 mb-4">Oversees taxation, debt, trade agreements, and social security.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Wyden
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 27 Members
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Joint Committees -->
+    <section class="py-16 bg-gray-50 hidden" id="joint-committees">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Joint Committees</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-purple-600 flex items-center justify-center">
+              <i data-feather="book" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Joint Economic</h3>
+              <p class="text-gray-600 mb-4">Studies and investigates economic policy issues.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-purple-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Lee
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 20 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-purple-600 flex items-center justify-center">
+              <i data-feather="archive" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Joint Library</h3>
+              <p class="text-gray-600 mb-4">Oversees the Library of Congress and congressional library services.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-purple-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Klobuchar
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 10 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-purple-600 flex items-center justify-center">
+              <i data-feather="printer" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Joint Printing</h3>
+              <p class="text-gray-600 mb-4">Oversees the Government Publishing Office.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-purple-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Rep. Davis
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 5 Members
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Committee Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden committee-card transition duration-200">
+            <div class="h-40 bg-purple-600 flex items-center justify-center">
+              <i data-feather="dollar-sign" class="text-white w-12 h-12"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Joint Taxation</h3>
+              <p class="text-gray-600 mb-4">Investigates operation and effects of federal tax system.</p>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-purple-600 hover:underline flex items-center">
+                  <i data-feather="user" class="w-4 h-4 mr-1"></i> Chair: Sen. Wyden
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> 10 Members
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Square Country Congress</h3>
+            <p class="text-gray-400">The legislative branch of the Square Country federal government.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Chambers</h3>
+            <ul class="space-y-2">
+              <li><a href="house.html" class="text-gray-400 hover:text-white">House of Representatives</a></li>
+              <li><a href="senate.html" class="text-gray-400 hover:text-white">The Senate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Legislative Process</h3>
+            <ul class="space-y-2">
+              <li><a href="legislation.html" class="text-gray-400 hover:text-white">Bills & Resolutions</a></li>
+              <li><a href="committees.html" class="text-gray-400 hover:text-white">Committees</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">How a Bill Becomes Law</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>© 2023 Square Country Congress. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Tab functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('[href^="#"]');
+        
+        tabs.forEach(tab => {
+          tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all sections
+            document.querySelectorAll('#house-committees, #senate-committees, #joint-committees').forEach(section => {
+              section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).classList.remove('hidden');
+            
+            // Update active tab
+            tabs.forEach(t => t.classList.remove('active-tab', 'border-congressional-600', 'border-senatorial-600', 'border-purple-600', 'text-congressional-600', 'text-senatorial-600', 'text-purple-600'));
+            
+            this.classList.add('active-tab');
+            if(targetId === '#house-committees') {
+              this.classList.add('border-congressional-600', 'text-congressional-600');
+            } else if(targetId === '#senate-committees') {
+              this.classList.add('border-senatorial-600', 'text-senatorial-600');
+            } else {
+              this.classList.add('border-purple-600', 'text-purple-600');
+            }
+          });
+        });
+      });
+      
+      feather.replace();
+    </script>
+</body>
+</html>

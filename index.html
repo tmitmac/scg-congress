@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Country Congress</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              congressional: {
+                '50': '#f0f9ff',
+                '100': '#e0f2fe',
+                '200': '#bae6fd',
+                '300': '#7dd3fc',
+                '400': '#38bdf8',
+                '500': '#0ea5e9',
+                '600': '#0284c7',
+                '700': '#0369a1',
+                '800': '#075985',
+                '900': '#0c4a6e',
+              },
+              senatorial: {
+                '50': '#f5f3ff',
+                '100': '#ede9fe',
+                '200': '#ddd6fe',
+                '300': '#c4b5fd',
+                '400': '#a78bfa',
+                '500': '#8b5cf6',
+                '600': '#7c3aed',
+                '700': '#6d28d9',
+                '800': '#5b21b6',
+                '900': '#4c1d95',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      #vanta-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.2;
+      }
+      .glass-card {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="vanta-bg"></div>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-congressional-600 rounded-lg flex items-center justify-center">
+              <i data-feather="home" class="text-white"></i>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800">Square Country Congress</h1>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="index.html" class="text-congressional-600 font-medium hover:text-congressional-800">Home</a>
+            <a href="house.html" class="text-gray-600 hover:text-congressional-600">House</a>
+            <a href="senate.html" class="text-gray-600 hover:text-senatorial-600">Senate</a>
+            <a href="legislation.html" class="text-gray-600 hover:text-congressional-600">Legislation</a>
+            <a href="committees.html" class="text-gray-600 hover:text-senatorial-600">Committees</a>
+          </nav>
+          <button class="md:hidden">
+            <i data-feather="menu" class="text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Democracy in Action</h1>
+          <p class="text-xl text-gray-600 mb-10">The official portal for the Square Country Congress. Stay informed about legislation, representatives, and the democratic process.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="house.html" class="px-6 py-3 bg-congressional-600 text-white font-medium rounded-lg hover:bg-congressional-700 transition duration-200">
+              House of Representatives
+            </a>
+            <a href="senate.html" class="px-6 py-3 bg-senatorial-600 text-white font-medium rounded-lg hover:bg-senatorial-700 transition duration-200">
+              The Senate
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-md stat-card transition duration-200">
+            <div class="flex items-center">
+              <div class="p-3 rounded-full bg-congressional-100 mr-4">
+                <i data-feather="users" class="text-congressional-600"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">House Members</p>
+                <h3 class="text-3xl font-bold text-gray-800">435</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md stat-card transition duration-200">
+            <div class="flex items-center">
+              <div class="p-3 rounded-full bg-senatorial-100 mr-4">
+                <i data-feather="user" class="text-senatorial-600"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">Senators</p>
+                <h3 class="text-3xl font-bold text-gray-800">100</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md stat-card transition duration-200">
+            <div class="flex items-center">
+              <div class="p-3 rounded-full bg-gray-100 mr-4">
+                <i data-feather="file-text" class="text-gray-600"></i>
+              </div>
+              <div>
+                <p class="text-gray-500">Active Bills</p>
+                <h3 class="text-3xl font-bold text-gray-800">1,284</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Session Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">117th Congress Highlights</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Recent Legislation -->
+          <div class="glass-card p-6 rounded-xl shadow-md">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-xl font-semibold text-gray-800">Recent Legislation</h3>
+              <a href="legislation.html" class="text-sm text-congressional-600 hover:underline">View All</a>
+            </div>
+            <div class="space-y-4">
+              <div class="border-b border-gray-100 pb-4">
+                <p class="text-sm text-congressional-600">H.R. 5376</p>
+                <h4 class="text-lg font-medium text-gray-800">Build Back Better Act</h4>
+                <p class="text-gray-600 text-sm">Introduced to address climate change, healthcare, and social spending.</p>
+              </div>
+              <div class="border-b border-gray-100 pb-4">
+                <p class="text-sm text-senatorial-600">S. 1</p>
+                <h4 class="text-lg font-medium text-gray-800">Freedom to Vote Act</h4>
+                <p class="text-gray-600 text-sm">Expands voter registration and voting access, and limits gerrymandering.</p>
+              </div>
+              <div class="border-b border-gray-100 pb-4">
+                <p class="text-sm text-congressional-600">H.R. 3684</p>
+                <h4 class="text-lg font-medium text-gray-800">Infrastructure Investment and Jobs Act</h4>
+                <p class="text-gray-600 text-sm">Invests in roads, bridges, public transit, and broadband internet.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Upcoming Events -->
+          <div class="glass-card p-6 rounded-xl shadow-md">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-xl font-semibold text-gray-800">Upcoming Events</h3>
+              <a href="#" class="text-sm text-congressional-600 hover:underline">View Calendar</a>
+            </div>
+            <div class="space-y-4">
+              <div class="border-b border-gray-100 pb-4">
+                <div class="flex items-start">
+                  <div class="bg-congressional-100 text-congressional-600 rounded-lg p-2 mr-4">
+                    <i data-feather="calendar" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800">Budget Committee Hearing</h4>
+                    <p class="text-gray-600 text-sm">Dec 15, 2023 | 10:00 AM | House Chambers</p>
+                  </div>
+                </div>
+              </div>
+              <div class="border-b border-gray-100 pb-4">
+                <div class="flex items-start">
+                  <div class="bg-senatorial-100 text-senatorial-600 rounded-lg p-2 mr-4">
+                    <i data-feather="mic" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800">State of the Union Address</h4>
+                    <p class="text-gray-600 text-sm">Jan 20, 2024 | 9:00 PM | Capitol Building</p>
+                  </div>
+                </div>
+              </div>
+              <div class="border-b border-gray-100 pb-4">
+                <div class="flex items-start">
+                  <div class="bg-gray-100 text-gray-600 rounded-lg p-2 mr-4">
+                    <i data-feather="users" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800">Bipartisan Infrastructure Discussion</h4>
+                    <p class="text-gray-600 text-sm">Dec 20, 2023 | 2:30 PM | Senate Conference Room</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Square Country Congress</h3>
+            <p class="text-gray-400">The legislative branch of the Square Country federal government.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Chambers</h3>
+            <ul class="space-y-2">
+              <li><a href="house.html" class="text-gray-400 hover:text-white">House of Representatives</a></li>
+              <li><a href="senate.html" class="text-gray-400 hover:text-white">The Senate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Legislative Process</h3>
+            <ul class="space-y-2">
+              <li><a href="legislation.html" class="text-gray-400 hover:text-white">Bills & Resolutions</a></li>
+              <li><a href="committees.html" class="text-gray-400 hover:text-white">Committees</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">How a Bill Becomes Law</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>© 2023 Square Country Congress. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      VANTA.GLOBE({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x3b82f6,
+        backgroundColor: 0xf8fafc,
+        size: 0.8
+      });
+    </script>
+    <script>
+      feather.replace();
+    </script>
+</body>
+</html>

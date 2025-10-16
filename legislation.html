@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legislation | Square Country Congress</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              congressional: {
+                '50': '#f0f9ff',
+                '100': '#e0f2fe',
+                '200': '#bae6fd',
+                '300': '#7dd3fc',
+                '400': '#38bdf8',
+                '500': '#0ea5e9',
+                '600': '#0284c7',
+                '700': '#0369a1',
+                '800': '#075985',
+                '900': '#0c4a6e',
+              },
+              senatorial: {
+                '50': '#f5f3ff',
+                '100': '#ede9fe',
+                '200': '#ddd6fe',
+                '300': '#c4b5fd',
+                '400': '#a78bfa',
+                '500': '#8b5cf6',
+                '600': '#7c3aed',
+                '700': '#6d28d9',
+                '800': '#5b21b6',
+                '900': '#4c1d95',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .bill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .progress-bar {
+        height: 6px;
+        border-radius: 3px;
+      }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="w-12 h-12 bg-congressional-600 rounded-lg flex items-center justify-center">
+              <i data-feather="home" class="text-white"></i>
+            </a>
+            <h1 class="text-2xl font-bold text-gray-800">Legislation</h1>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="index.html" class="text-gray-600 hover:text-congressional-600">Home</a>
+            <a href="house.html" class="text-gray-600 hover:text-congressional-600">House</a>
+            <a href="senate.html" class="text-gray-600 hover:text-senatorial-600">Senate</a>
+            <a href="legislation.html" class="text-congressional-600 font-medium">Legislation</a>
+            <a href="committees.html" class="text-gray-600 hover:text-senatorial-600">Committees</a>
+          </nav>
+          <button class="md:hidden">
+            <i data-feather="menu" class="text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-congressional-600 to-senatorial-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Legislative Process</h1>
+          <p class="text-xl mb-8">Track bills, resolutions, and other legislative measures as they move through Congress.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#bills" class="px-6 py-3 bg-white text-congressional-600 font-medium rounded-lg hover:bg-gray-100 transition duration-200">
+              View Bills
+            </a>
+            <a href="#process" class="px-6 py-3 bg-white text-senatorial-600 font-medium rounded-lg hover:bg-gray-100 transition duration-200">
+              How a Bill Becomes Law
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bills Section -->
+    <section class="py-16 bg-white" id="bills">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900">Recent Legislation</h2>
+          <div class="flex space-x-4">
+            <div class="relative">
+              <select class="appearance-none bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-congressional-500 focus:border-congressional-500">
+                <option>Filter by Status</option>
+                <option>Introduced</option>
+                <option>In Committee</option>
+                <option>Passed House</option>
+                <option>Passed Senate</option>
+                <option>Enacted</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <i data-feather="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="relative">
+              <select class="appearance-none bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-senatorial-500 focus:border-senatorial-500">
+                <option>Filter by Chamber</option>
+                <option>House</option>
+                <option>Senate</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <i data-feather="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bills Grid -->
+        <div class="grid grid-cols-1 gap-6">
+          <!-- Bill Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden bill-card transition duration-200 border-l-4 border-congressional-600">
+            <div class="p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-sm text-congressional-600 mb-1">H.R. 5376</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Build Back Better Act</h3>
+                  <p class="text-gray-600 mb-4">Introduced to address climate change, healthcare, and social spending.</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-congressional-100 text-congressional-800">
+                  In Committee
+                </span>
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm text-gray-500 mb-1">
+                  <span>Introduced: Sep 27, 2021</span>
+                  <span>Sponsor: Rep. John Smith (Squareland-8th)</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full progress-bar">
+                  <div class="bg-congressional-600 progress-bar" style="width: 45%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="file-text" class="w-4 h-4 mr-1"></i> Full Text
+                </a>
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="activity" class="w-4 h-4 mr-1"></i> Track Progress
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> Sponsors
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bill Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden bill-card transition duration-200 border-l-4 border-senatorial-600">
+            <div class="p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-sm text-senatorial-600 mb-1">S. 1</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Freedom to Vote Act</h3>
+                  <p class="text-gray-600 mb-4">Expands voter registration and voting access, and limits gerrymandering.</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-senatorial-100 text-senatorial-800">
+                  Passed Senate
+                </span>
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm text-gray-500 mb-1">
+                  <span>Introduced: Jan 20, 2021</span>
+                  <span>Sponsor: Sen. Robert Davis (Squareland)</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full progress-bar">
+                  <div class="bg-senatorial-600 progress-bar" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="file-text" class="w-4 h-4 mr-1"></i> Full Text
+                </a>
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="activity" class="w-4 h-4 mr-1"></i> Track Progress
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> Sponsors
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bill Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden bill-card transition duration-200 border-l-4 border-green-500">
+            <div class="p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-sm text-green-600 mb-1">H.R. 3684</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Infrastructure Investment and Jobs Act</h3>
+                  <p class="text-gray-600 mb-4">Invests in roads, bridges, public transit, and broadband internet.</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                  Enacted
+                </span>
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm text-gray-500 mb-1">
+                  <span>Introduced: Jun 4, 2021</span>
+                  <span>Sponsor: Rep. Jane Doe (Rectangle-5th)</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full progress-bar">
+                  <div class="bg-green-500 progress-bar" style="width: 100%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="file-text" class="w-4 h-4 mr-1"></i> Full Text
+                </a>
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="activity" class="w-4 h-4 mr-1"></i> Track Progress
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> Sponsors
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bill Card -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden bill-card transition duration-200 border-l-4 border-congressional-600">
+            <div class="p-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-sm text-congressional-600 mb-1">H.R. 1319</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">American Rescue Plan Act of 2021</h3>
+                  <p class="text-gray-600 mb-4">Provides additional relief to address the continued impact of COVID-19.</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-congressional-100 text-congressional-800">
+                  In Committee
+                </span>
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between text-sm text-gray-500 mb-1">
+                  <span>Introduced: Feb 24, 2021</span>
+                  <span>Sponsor: Rep. Sarah Johnson (Squareland-3rd)</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full progress-bar">
+                  <div class="bg-congressional-600 progress-bar" style="width: 30%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-sm">
+                <a href="#" class="text-congressional-600 hover:underline flex items-center">
+                  <i data-feather="file-text" class="w-4 h-4 mr-1"></i> Full Text
+                </a>
+                <a href="#" class="text-senatorial-600 hover:underline flex items-center">
+                  <i data-feather="activity" class="w-4 h-4 mr-1"></i> Track Progress
+                </a>
+                <a href="#" class="text-gray-600 hover:underline flex items-center">
+                  <i data-feather="users" class="w-4 h-4 mr-1"></i> Sponsors
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="flex justify-center mt-10">
+          <nav class="inline-flex rounded-md shadow">
+            <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              Previous
+            </a>
+            <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-congressional-600 hover:bg-gray-50">
+              1
+            </a>
+            <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              2
+            </a>
+            <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              Next
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-gray-100" id="process">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">How a Bill Becomes Law</h2>
+        
+        <div class="max-w-4xl mx-auto">
+          <!-- Process Steps -->
+          <div class="relative">
+            <!-- Line -->
+            <div class="hidden sm:block absolute h-full w-0.5 bg-gray-300 left-1/2 transform -translate-x-1/2"></div>
+            
+            <!-- Step 1 -->
+            <div class="flex flex-col sm:flex-row items-center mb-10">
+              <div class="flex-shrink-0 w-16 h-16 rounded-full bg-congressional-600 flex items-center justify-center text-white font-bold text-xl mb-4 sm:mb-0">
+                1
+              </div>
+              <div class="sm:ml-8 sm:mr-8 w-full sm:w-auto">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Introduction</h3>
+                <p class="text-gray-600">A bill is introduced in either the House or Senate by a member of Congress. It is assigned a number (H.R. for House, S. for Senate) and referred to committee.</p>
+              </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="flex flex-col sm:flex-row items-center mb-10">
+              <div class="flex-shrink-0 w-16 h-16 rounded-full bg-congressional-600 flex items-center justify-center text-white font-bold text-xl mb-4 sm:mb-0 sm:order-2">
+                2
+              </div>
+              <div class="sm:ml-8 sm:mr-8 w-full sm:w-auto sm:text-right">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Committee Action</h3>
+                <p class="text-gray-600">The committee studies the bill, holds hearings, and may make changes. If approved, the bill is reported to the full chamber.</p>
+              </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="flex flex-col sm:flex-row items-center mb-10">
+              <div class="flex-shrink-0 w-16 h-16 rounded-full bg-congressional-600 flex items-center justify-center text-white font-bold text-xl mb-4 sm:mb-0">
+                3
+              </div>
+              <div class="sm:ml-8 sm:mr-8 w-full sm:w-auto">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Floor Action</h3>
+                <p class="text-gray-600">The bill is debated and voted on by the full chamber. If passed, it goes to the other chamber to repeat the process.</p>
+              </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="flex flex-col sm:flex-row items-center mb-10">
+              <div class="flex-shrink-0 w-16 h-16 rounded-full bg-congressional-600 flex items-center justify-center text-white font-bold text-xl mb-4 sm:mb-0 sm:order-2">
+                4
+              </div>
+              <div class="sm:ml-8 sm:mr-8 w-full sm:w-auto sm:text-right">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Conference Committee</h3>
+                <p class="text-gray-600">If the two chambers pass different versions, a conference committee works out differences for a compromise bill.</p>
+              </div>
+            </div>
+            
+            <!-- Step 5 -->
+            <div class="flex flex-col sm:flex-row items-center mb-10">
+              <div class="flex-shrink-0 w-16 h-16 rounded-full bg-congressional-600 flex items-center justify-center text-white font-bold text-xl mb-4 sm:mb-0">
+                5
+              </div>
+              <div class="sm:ml-8 sm:mr-8 w-full sm:w-auto">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Presidential Action</h3>
+                <p class="text-gray-600">The bill goes to the President who may sign it into law or veto it. Congress can override a veto with a 2/3 vote in both chambers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Square Country Congress</h3>
+            <p class="text-gray-400">The legislative branch of the Square Country federal government.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Chambers</h3>
+            <ul class="space-y-2">
+              <li><a href="house.html" class="text-gray-400 hover:text-white">House of Representatives</a></li>
+              <li><a href="senate.html" class="text-gray-400 hover:text-white">The Senate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Legislative Process</h3>
+            <ul class="space-y-2">
+              <li><a href="legislation.html" class="text-gray-400 hover:text-white">Bills & Resolutions</a></li>
+              <li><a href="committees.html" class="text-gray-400 hover:text-white">Committees</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white">How a Bill Becomes Law</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>© 2023 Square Country Congress. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+</body>
+</html>
